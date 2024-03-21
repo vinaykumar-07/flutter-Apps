@@ -45,13 +45,14 @@ class _Expanses extends State<Expenses> {
             setState(() {
               _registredExpense.insert(expenseIndex, expense);
             });
-            print(expenseIndex);                                              
+            print(expenseIndex);
           }),
     ));
   }
 
   void _openAddExpenceOverlay() {
     showModalBottomSheet(
+      useSafeArea: true,
       context: context,
       isScrollControlled: true,
       builder: (context) => NewExpense(onAddExpense: addExpenses),
@@ -60,6 +61,8 @@ class _Expanses extends State<Expenses> {
 
   @override
   Widget build(context) {
+    final width = MediaQuery.of(context).size.width;
+
     Widget mainContent = const Center(
       child: Text("No Expense Found. Start adding..."),
     );
@@ -75,11 +78,18 @@ class _Expanses extends State<Expenses> {
           IconButton(
               onPressed: _openAddExpenceOverlay, icon: const Icon(Icons.add))
         ]),
-        body: Column(
-          children: [
-            Chart(expenses: _registredExpense),
-            Expanded(child: mainContent)
-          ],
-        ));
+        body: width < 600
+            ? Column(
+                children: [
+                  Chart(expenses: _registredExpense),
+                  Expanded(child: mainContent)
+                ],
+              )
+            : Row(
+                children: [
+                  Expanded(child: Chart(expenses: _registredExpense)),
+                  Expanded(child: mainContent)
+                ],
+              ));
   }
 }

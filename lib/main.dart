@@ -2,6 +2,7 @@
 // import 'package:brand_assignment/Quiz_App/quiz.dart';
 import 'package:brand_assignment/Expanse_App/expenses.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 var kColorScheme =
     ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 96, 59, 181));
@@ -9,8 +10,14 @@ var kDarkColorScheme = ColorScheme.fromSeed(
     brightness: Brightness.dark,
     seedColor: const Color.fromARGB(255, 5, 99, 125));
 void main() {
-  runApp(const MyApp());
-}
+  //WidgetsFlutterBinding.ensureInitialized();
+ // SystemChrome.setPreferredOrientations([
+// DeviceOrientation.portraitUp,
+ // ]).then((fn) {
+    runApp(const MyApp());
+  }
+  //);
+// }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -19,14 +26,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter Apps',
       debugShowCheckedModeBanner: false,
       darkTheme: ThemeData.dark().copyWith(
         useMaterial3: true,
         colorScheme: kDarkColorScheme,
         elevatedButtonTheme: ElevatedButtonThemeData(
             style: ElevatedButton.styleFrom(
-                backgroundColor: kDarkColorScheme.primaryContainer,foregroundColor: kDarkColorScheme.onPrimaryContainer)),
+                backgroundColor: kDarkColorScheme.primaryContainer,
+                foregroundColor: kDarkColorScheme.onPrimaryContainer)),
         cardTheme: const CardTheme().copyWith(
             color: kDarkColorScheme.secondaryContainer,
             margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8)),

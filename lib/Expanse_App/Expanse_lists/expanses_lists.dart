@@ -23,16 +23,7 @@ class ExpensesList extends StatelessWidget {
               onRemovedExpense(expenses[index]);
             },
             child: ExpanseItem(expenses[index]));
-
-        // Column(
-        //   crossAxisAlignment: CrossAxisAlignment.start,
-        //   children: [
-        //     Text(expanses[index].id),
-        //     Text(expanses[index].title),
-        //     Text(expanses[index].amount),
-        //     Text(expanses[index].catagory.name)
-        //   ],
-        // );
+ 
       },
     );
   }

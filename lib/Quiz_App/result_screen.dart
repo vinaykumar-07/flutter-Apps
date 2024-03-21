@@ -33,6 +33,7 @@ class ResultScreen extends StatelessWidget {
     final correctQuestion = summarydata.where((data) {
       return data['user_answer'] == data['correct_answer'];
     }).length;
+    final resultPercent = ((correctQuestion / numTotalQuestion) * 100).toInt();
 
     return Container(
       margin: const EdgeInsets.all(10),
@@ -41,7 +42,7 @@ class ResultScreen extends StatelessWidget {
         children: [
           BigText(
             text:
-                'You answered $correctQuestion out of $numTotalQuestion questions correctly!',
+                'You answered $correctQuestion out of $numTotalQuestion questions correctly! ($resultPercent%)',
             size: 22,
             color: Colors.white,
           ),
