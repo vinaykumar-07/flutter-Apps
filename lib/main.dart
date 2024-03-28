@@ -1,7 +1,12 @@
 // import 'package:brand_assignment/DICE_ROLL/dice_roll.dart';
 // import 'package:brand_assignment/Quiz_App/quiz.dart';
 // import 'package:brand_assignment/Expanse_App/expenses.dart';
-import 'package:brand_assignment/Todo_App/todo_list.dart';
+
+import 'package:brand_assignment/Meals_App/data/dummy_data.dart';
+import 'package:brand_assignment/Meals_App/screens/categories.dart';
+import 'package:brand_assignment/Meals_App/screens/meals.dart';
+import 'package:brand_assignment/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 var kColorScheme =
@@ -9,15 +14,11 @@ var kColorScheme =
 var kDarkColorScheme = ColorScheme.fromSeed(
     brightness: Brightness.dark,
     seedColor: const Color.fromARGB(255, 5, 99, 125));
-void main() {
-  //WidgetsFlutterBinding.ensureInitialized();
-  // SystemChrome.setPreferredOrientations([
-// DeviceOrientation.portraitUp,
-  // ]).then((fn) {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
-//);
-// }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -57,7 +58,7 @@ class MyApp extends StatelessWidget {
                   fontSize: 16,
                   color: kColorScheme.onSecondary))),
       themeMode: ThemeMode.system,
-      home:  TodoList(),
+      home: const  CategoryScreen()
     );
   }
 }
