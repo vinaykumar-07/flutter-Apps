@@ -3,7 +3,7 @@
 A new Flutter project.
 
 ## Getting Started
-[Download the APK file](https://drive.google.com/file/d/16hyy4lL5EFlpdSFINxkZqtinNEDrVxe1/view?usp=drive_link)
+[Download the APK file](https://drive.usercontent.google.com/download?id=16hyy4lL5EFlpdSFINxkZqtinNEDrVxe1&export=download&authuser=0)
 
 This project is a starting point for a Flutter application.
 
